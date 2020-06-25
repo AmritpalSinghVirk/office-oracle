@@ -1,0 +1,60 @@
+ID: OfficeOracle
+_schema-version: '2.1'
+description: 'Solution for tracking, forecasting and visualizing workspace occupancy'
+version: 0.0.1
+modules:
+  - name: OfficeOracle.js
+    type: nodejs
+    path: OfficeOracle.js
+    provides:
+      - name: OfficeOracle.js_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: uaa-service
+  
+  - name: OfficeOracle.hdb
+    type: hdb
+    path: OfficeOracle.hdb
+    requires:
+      - name: hdi_OfficeOracle.hdb
+    parameters:
+      disk-quota: 512
+      memory: 256
+
+  - name: OfficeOracle.ui
+    type: html5
+    path: OfficeOracle.ui
+    parameters:
+       disk-quota: 512M
+       memory: 256M
+    build-parameters:
+       builder: grunt
+    requires:
+     - name: uaa_OfficeOracle
+     - name: dest_OfficeOracle
+
+resources:
+  - name: hdi_OfficeOracle.hdb
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-name: office-oracle-hdi
+  - name: uaa-service
+    type: com.sap.xs.uaa-space
+
+  - name: uaa_OfficeOracle
+    parameters:
+       path: ./xs-security.json
+       service-plan: application
+       service: xsuaa
+    type: org.cloudfoundry.managed-service
+
+
+  - name: dest_OfficeOracle
+    parameters:
+       service-plan: lite
+       service: destination
+    type: org.cloudfoundry.managed-service
+

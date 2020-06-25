@@ -1,0 +1,137 @@
+<mvc:View controllerName="OfficeOracle.ui.OfficeOracle.ui.controller.Dashboard" xmlns:f="sap.f"
+		xmlns:card="sap.f.cards" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<core:Fragment fragmentName="OfficeOracle.ui.OfficeOracle.ui.view.fragments.Header" id="idHeader" type="XML"/>
+	<Page class="dashboardPage" showHeader="false">
+		<content>
+			<FlexBox
+				class="dashboardMenuContainer"
+				height="80px"
+				width="100%"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>
+					<SegmentedButton  width="100%" selectedKey="mainDashboard">
+						<items>
+							<SegmentedButtonItem text="Main Dashboard" key="mainDashboard" />
+							<SegmentedButtonItem text="Analytics &amp; History" key="analyticsAndHistory" />
+							<SegmentedButtonItem text="Planned Presence Registration" key="PresencePlannedRegistration" />
+						</items>
+					</SegmentedButton>
+				</items>
+			</FlexBox>
+			<HBox width="100%">
+				<VBox width="26.3%">
+					<f:Card
+						class="sapUiSmallMarginBottom sapUiMediumMarginBegin sapUiMediumMarginEnd realTimeOccupancyCard"
+						width="300px" height="120px">
+						<f:content>
+							<VBox class="sapUiSmallMargin" width="100%">
+								<Title level="H3" text="Real-time occupancy (sum)" />
+								<Text class="realTimeOccupancyCounter" text="56"/>
+							</VBox>
+						</f:content>
+					</f:Card>
+					<f:Card
+						class="sapUiSmallMarginBottom sapUiMediumMarginBegin sapUiMediumMarginEnd timestampCard"
+						width="300px" height="80px">
+						<f:content>
+							<VBox class="sapUiSmallMargin" width="100%">
+								<Title class="timestampTitle" level="H3" text="Timestamp" />
+								<Text class="timestampValue" text="{Dashboard>/CurrentTimestamp}"/>
+							</VBox>
+						</f:content>
+					</f:Card>
+					<f:Card
+						class="sapUiSmallMarginBottom sapUiMediumMarginBegin sapUiMediumMarginEnd occupancyCard"
+						width="300px">
+						<f:header>
+							<card:Header
+								title="Overview of occupancy"
+								subtitle="Per Room"
+								statusText="1 of 2"/>
+						</f:header>
+						<f:content>
+							<List
+								class="itemContainer"
+								showSeparators="None" >
+								<CustomListItem>
+									<HBox
+										class="listItem"
+										alignItems="Center"
+										justifyContent="SpaceBetween">
+										<VBox width="100%" class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom" >
+											<HBox justifyContent="SpaceBetween" width="100%">
+												<Title level="H3" text="Room 1" />
+												<Text text="5/8"/>
+											</HBox>
+											<ProgressIndicator
+												class="sapUiSmallMarginBottom"
+												percentValue="63"
+												displayValue="63%"
+												showValue="true"
+												state="Information" />
+										</VBox>
+									</HBox>
+									<HBox
+										class="listItem"
+										alignItems="Center"
+										justifyContent="SpaceBetween">
+										<VBox width="100%" class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom" >
+											<HBox justifyContent="SpaceBetween" width="100%">
+												<Title level="H3" text="Room 2" />
+												<Text text="4/4"/>
+											</HBox>
+											<ProgressIndicator
+												class="sapUiSmallMarginBottom"
+												percentValue="100"
+												displayValue="100%"
+												showValue="true"
+												state="Information" />
+										</VBox>
+									</HBox>
+									<HBox
+										class="listItem"
+										alignItems="Center"
+										justifyContent="SpaceBetween">
+										<VBox width="100%" class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom" >
+											<HBox justifyContent="SpaceBetween" width="100%">
+												<Title level="H3" text="Room 3" />
+												<Text text="3/6"/>
+											</HBox>
+											<ProgressIndicator
+												class="sapUiSmallMarginBottom"
+												percentValue="50"
+												displayValue="50%"
+												showValue="true"
+												state="Information" />
+										</VBox>
+									</HBox>
+								</CustomListItem>
+							</List>
+						</f:content>
+					</f:Card>
+				</VBox>
+				<VBox width="73.4%" class="mainChartContainer">
+					<f:Card
+						class="floorPlanCard"
+						width="100%" height="100%">
+						<f:content>
+							<VBox class="sapUiSmallMargin" width="100%">
+								<Title level="H3" text="Floor plan" />
+							</VBox>
+						</f:content>
+					</f:Card>
+					<f:Card
+						class="heatMapCard"
+						width="100%" height="100%">
+						<f:content>
+							<VBox class="sapUiSmallMargin" width="100%">
+								<Title level="H3" text="Heat map" />
+							</VBox>
+						</f:content>
+					</f:Card>
+				</VBox>
+			</HBox>
+		</content>
+	</Page>
+</mvc:View>

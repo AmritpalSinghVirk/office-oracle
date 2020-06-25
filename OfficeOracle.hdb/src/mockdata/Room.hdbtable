@@ -1,0 +1,8 @@
+COLUMN TABLE "OfficeOracle.OfficeOracle.hdb.mockdata::Room" ( 
+   "RID" INTEGER               COMMENT 'Room ID',
+   "ROOMX" INTEGER           COMMENT 'Room Length, or X',
+   "ROOMY" INTEGER           COMMENT 'Room Width, or Y',
+   "FID" INTEGER    		   COMMENT 'Correlating Floor',
+   PRIMARY KEY ("RID") 
+)
+COMMENT 'Table with Room related data'

@@ -1,0 +1,57 @@
+/* Enter your custom styles here */
+.logo {
+	height: 2rem;
+	margin-left: 1.25rem !important;
+}
+
+.dashboardPage {
+	height: calc(100% - 3rem);
+}
+
+.dashboardMenuContainer .sapMFlexItem {
+	width: 100%;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.realTimeOccupancyCard .sapMVBox .sapMFlexItem:last-child {
+	text-align: center;
+}
+
+.realTimeOccupancyCounter {
+	font-size: 66px;
+}
+
+.timestampTitle {
+	margin-bottom: 0.3rem;
+}
+
+.timestampValue {
+	font-size: 17px;
+    font-weight: 600;
+}
+
+.occupancyCard .sapFCardContent {
+	padding-right: 1.5rem;
+}
+
+.listItem {
+	border-bottom: 1px solid #d9d9d9;
+}
+
+.listItem:last-child {
+	border: 0;
+}
+
+.mainChartContainer .sapMFlexItem {
+	padding: 0 2rem 1rem 1rem;
+	height: 50%;
+}
+
+.floorPlanCard {
+	padding: 1rem;
+}
+
+.heatMapCard {
+	padding: 1rem;
+}
